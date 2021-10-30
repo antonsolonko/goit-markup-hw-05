@@ -57,8 +57,17 @@
           <h1 class="title">
             Эффективные решения для вашего бизнеса
           </h1>
-          <button type="button" class="modal-btn">Заказать услугу</button>
-        </div>        
+          <button data-modal-open type="button" class="modal-btn">Заказать услугу</button>
+        </div>
+        <div class="backdrop is-hidden" data-modal>
+          <div class="modal">
+            <button type="button" class="button-close" data-modal-close>
+              <svg class="svg-button-close">
+                <use href="./images/svg/symbol-defs.svg#icon-Vector"></use>
+              </svg>
+            </button>
+          </div>
+        </div>
       </section>
       <!--Advantages-->
       <section class="section">
@@ -97,22 +106,32 @@
           <h2 class="section title main-title">Чем мы занимаемся</h2>
           <ul class="whatwedo-list list">
             <li class="wedo-item">
-              <img
+              <div class="thumb">
+                <img class="image" src="./images/tablet.jpg" width="370" alt="Планшет" />
+                <p class="we-do-text">десктопные приложения</p>
+              </div>
+            </li>
+            <li class="wedo-item">
+              <div class="thumb">
+                <img
                 class="image"
                 src="./images/process-architecture.jpg"
                 width="370"
                 alt="Разработка архитектуры процессов"
-              />
+                />
+                <p class="we-do-text">мобильные приложения</p>
+              </div>
             </li>          
             <li class="wedo-item">
-              <img
+              <div class="thumb">
+                <img
                 class="image"
                 src="./images/client-oriented-uiux-design.jpg"
                 width="370"
                 alt="Клиенто-ориенторованный UX/UI-дизайн"
               />
-            <li class="wedo-item">
-              <img class="image" src="./images/tablet.jpg" width="370" alt="Планшет" />
+              <p class="we-do-text">дизайнерские решения</p>
+              </div>
             </li>
           </ul>
         </div>
@@ -333,6 +352,7 @@
           </div>
         </div>
       </div>      
-    </footer>
+    </footer>    
+    <script src="./js/modal.js"></script>
   </body>
 </html>

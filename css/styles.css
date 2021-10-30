@@ -44,14 +44,15 @@ img {
 .uppercase {
   text-transform: uppercase;
 }
-/* ---------------------- Header ------------------------*/
+.thumb {
+  position: relative;
+}
+/*------- Header ------------------------*/
 .page-header {
   border-bottom: 1px solid #ececec;
 }
 .header-container {
   display: flex;
-  padding-top: 24px;
-  padding-bottom: 24px;
 }
 .logo {
   display: flex;
@@ -65,7 +66,9 @@ img {
   line-height: 1.2;
   text-decoration: none;
 
-  margin-right: 73px;
+  margin-right: 73px;  
+  padding-top: 24px;
+  padding-bottom: 24px;
 }
 .logo-web {
     color: var(--accent-color);
@@ -93,8 +96,20 @@ img {
 .auth-nav .item:not(:last-child) {
   margin-right: 50px;
 }
-.site-nav .link,
 .auth-nav .link {
+  display: flex;
+  align-items: center;
+  color: var(--primary-text-color);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.14;
+  letter-spacing: 0.02em;
+  text-decoration: none;  
+  padding-top: 32px;
+  padding-bottom: 32px;
+}
+.site-nav .link {
   display: flex;
   align-items: center;
   color: var(--title-text-color);
@@ -103,7 +118,9 @@ img {
   font-weight: 500;
   line-height: 1.14;
   letter-spacing: 0.02em;
-  text-decoration: none;
+  text-decoration: none;  
+  padding-top: 32px;
+  padding-bottom: 32px;
 }
 .auth-nav .link:hover,
 .auth-nav .link:focus {
@@ -116,29 +133,23 @@ img {
 .auth-nav-icon {
   margin-right: 10px;
 }
-/* .envelope-mail::before {
-  content: "";
-  height: 12px;
-  width: 16px;
-  margin-right: 10px;
-  background-image: url(../images/svg/contacts-auth/envelope.svg);
-  background-size: contain;
-}
-.phone-mobile::before {
-  content: "";
-  height: 16px;
-  width: 10px;
-  margin-right: 10px;
-  background-image: url(../images/svg/contacts-auth/smartphone.svg);
-  background-size: contain;
-} */
-
 .site-nav .link:hover,
 .site-nav .link:focus {
   color: var(--accent-color);  
 }
 .link.current {
   color: var(--accent-color);
+  position: relative;
+}
+.link.current::after {  
+  position: absolute;
+  display: block;
+  content: "";
+  width: 100%;
+  height: 4px;
+  bottom: 0px;
+  border-radius: 2px;
+  background-color: var(--accent-color);  
 }
 
 /* -----------------------------------Hero------------------------------- */
@@ -176,6 +187,7 @@ img {
   width: 201px;
   height: 50px;
   padding: 10px 32px 10px 32px;
+
   border: none;
   border-radius: 4px;
 
@@ -189,6 +201,59 @@ img {
   line-height: 1.87;
   letter-spacing: 0.96px;
   cursor: pointer;
+}
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  height: 581px;
+  width: 528px;
+  background-color: #fff;
+}
+.backdrop.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+.button-close {
+  position: absolute;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  right: 8px;
+  top: 8px;
+
+  width: 30px;
+  height: 30px;
+
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.1);  
+  background-color: transparent;  
+  cursor: pointer;
+}
+.svg-button-close {
+  width: 11px;
+  height: 11px;
+  justify-content: center;
+  align-items: center;
+}
+.button-close:hover,
+.button-close:focus{
+  border: 1px solid var(--accent-color);  
+}
+.button-close:hover .svg-button-close,
+.button-close:focus .svg-button-close{
+  fill:var(--accent-color);
 }
 /*--------------------------------------Advantages---------------------------------- */
 .advantages-list {
@@ -282,6 +347,27 @@ img {
 .wedo-item:not(:nth-child(3n-3)) {
   margin-right: 30px;
   margin-bottom: 30px;
+}
+.we-do-text {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+  height: 70px;
+  bottom: 0;
+
+  background-color: rgba(47, 48, 58, 0.8);
+
+  color: var(--white);
+  font-family: Roboto;
+  font-weight: 700;
+  font-size: 14px;
+  font-style: normal;
+  line-height: 1.17;
+  letter-spacing: 0.03rem;
+  text-transform: uppercase;
 }
 /* -------------------------------------------Our team----------------------------------------------- */
 .section-team {
@@ -610,4 +696,22 @@ cursor: pointer;
   width: 100%;
   height: 100%;
   text-decoration: none;
+}
+.portfolio-item-text {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  padding: 63px 24px;
+  padding-bottom: auto;
+
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 28px;
+  letter-spacing: 0.03em;
+  color: var(--white);
+  background-color: rgba(33, 150, 243, 0.9);
 }
