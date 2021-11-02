@@ -47,7 +47,7 @@ img {
 .thumb {
   position: relative;
 }
-/*------- Header ------------------------*/
+/*----------------------- Header ------------------------*/
 .page-header {
   border-bottom: 1px solid #ececec;
 }
@@ -84,10 +84,52 @@ img {
   display: flex;
   align-items: center;
 }
-
 .site-nav .item:not(:last-child) {
   margin-right: 50px;
 }
+.site-nav .link {
+  position: relative;
+  display: flex;
+  align-items: center;
+  color: var(--title-text-color);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.14;
+  letter-spacing: 0.02em;
+  text-decoration: none;  
+  padding-top: 32px;
+  padding-bottom: 32px;
+}
+.site-nav .link:hover,
+.site-nav .link:focus {
+  color: var(--accent-color);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.site-nav .link::before {  
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  display: block;
+  width: 100%;
+  height: 4px;
+  bottom: 0px;
+  border-radius: 2px;
+  background-color: var(--accent-color);
+
+  opacity: 0;
+  transform: scaleX(0);
+  transition: transform 330ms cubic-bezier(0.4, 0, 0.2, 1), 
+              opacity 650ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.site-nav .link:hover::before,
+.site-nav .link:focus::before {
+  opacity: 1;
+  transform: scaleX(1);
+}
+
 .auth-nav {
   display: flex;
   margin-left: auto;
@@ -109,22 +151,10 @@ img {
   padding-top: 32px;
   padding-bottom: 32px;
 }
-.site-nav .link {
-  display: flex;
-  align-items: center;
-  color: var(--title-text-color);
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 1.14;
-  letter-spacing: 0.02em;
-  text-decoration: none;  
-  padding-top: 32px;
-  padding-bottom: 32px;
-}
 .auth-nav .link:hover,
 .auth-nav .link:focus {
   color: var(--accent-color);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .auth-nav .envelope-mail,
 .auth-nav .phone-mobile {
@@ -133,16 +163,14 @@ img {
 .auth-nav-icon {
   margin-right: 10px;
 }
-.site-nav .link:hover,
-.site-nav .link:focus {
-  color: var(--accent-color);  
-}
 .link.current {
   color: var(--accent-color);
   position: relative;
 }
 .link.current::after {  
   position: absolute;
+  left: 0;
+  bottom: 0;
   display: block;
   content: "";
   width: 100%;
@@ -193,7 +221,6 @@ img {
 
   background-color: var(--accent-color);
   color: var(--white);
-  box-shadow:   0px 4px 4px rgba(0, 0, 0, 0.15);
 
   font-family: Roboto;
   font-weight: 700;
@@ -201,6 +228,14 @@ img {
   line-height: 1.87;
   letter-spacing: 0.96px;
   cursor: pointer;
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.hero .modal-btn:hover,
+.hero .modal-btn:focus {
+  color: #212121;
+  
+  box-shadow:   0px 4px 4px rgba(0, 0, 0, 0.15);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1), box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .backdrop {
   position: fixed;
@@ -250,10 +285,12 @@ img {
 .button-close:hover,
 .button-close:focus{
   border: 1px solid var(--accent-color);  
+  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .button-close:hover .svg-button-close,
 .button-close:focus .svg-button-close{
   fill:var(--accent-color);
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 /*--------------------------------------Advantages---------------------------------- */
 .advantages-list {
@@ -436,10 +473,12 @@ img {
 .social-link:focus{
   cursor: pointer;
   background-color: var(--accent-color);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .social-link:hover .social-icon,
 .social-link:focus .social-icon{
   fill:var(--white);
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .social-icon{
   width: 20px;
@@ -489,11 +528,13 @@ img {
 .our-clients-link:focus {
   cursor: pointer;
   border-color:var(--accent-color);
+  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
   outline: none;
 }
 .our-clients-link:hover .our-clients-svg,
 .our-clients-link:focus .our-clients-svg {
   fill: var(--accent-color);
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 /* --------------------------------Footer -------------------------------------*/
 .footer-container {
@@ -549,6 +590,7 @@ img {
 .footer-nav .link:hover,
 .footer-nav .link:focus {
   color: var(--accent-color);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .footer-social {
   padding-top: 72px;
@@ -591,24 +633,16 @@ img {
 }
 
 .footer-social-list .instagram:hover,
-.footer-social-list .instagram:focus {
-background-color: var(--accent-color);
-cursor: pointer;
-}
+.footer-social-list .instagram:focus,
 .footer-social-list .twitter:hover,
-.footer-social-list .twitter:focus {
-  background-color: var(--accent-color);
-  cursor: pointer;
-}
+.footer-social-list .twitter:focus,
 .footer-social-list .facebook:hover,
-.footer-social-list .facebook:focus {
-  background-color: var(--accent-color);
-  cursor: pointer;
-}
+.footer-social-list .facebook:focus,
 .footer-social-list .linkedin:hover,
 .footer-social-list .linkedin:focus {
   background-color: var(--accent-color);
   cursor: pointer;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 /* >:G ?:O W:| PORTFOLIO.HTML <:=) j:-O i:K */
 
@@ -650,6 +684,7 @@ cursor: pointer;
   background-color: var(--accent-color);
   box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 
   0px 1px 2px rgba(0, 0, 0, 0.08), 0px 2px 2px rgba(0, 0, 0, 0.12);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1), background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 /* ----------------------------------------- Portfolio list -----------------------------------*/
 .portfolio-list {
@@ -662,11 +697,6 @@ cursor: pointer;
   flex-basis: calc((100% - 90px) / 3);
   margin-top: 30px;
   margin-left: 30px;
-}
-.portfolio-list .item:hover,
-.portfolio-list .item:focus {
-  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 
-  0px 4px 4px rgba(0, 0, 0, 0.06), 1px 4px 6px rgba(0, 0, 0, 0.16);
 }
 .portfolio-item-description {
   padding: 20px 24px;
@@ -693,9 +723,22 @@ cursor: pointer;
   letter-spacing: 0.03rem;
 }
 .portfolio-list-link {
+  display: block;
   width: 100%;
   height: 100%;
-  text-decoration: none;
+  text-decoration: none;  
+}
+.portfolio-list-link:hover,
+.portfolio-list-link:focus {
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 
+  0px 4px 4px rgba(0, 0, 0, 0.06), 1px 4px 6px rgba(0, 0, 0, 0.16);
+  outline: none;
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.portfolio-list-link:hover .portfolio-item-text,
+.portfolio-list-link:focus .portfolio-item-text  {
+  transform: translateY(0);
 }
 .portfolio-item-text {
   position: absolute;
@@ -714,4 +757,10 @@ cursor: pointer;
   letter-spacing: 0.03em;
   color: var(--white);
   background-color: rgba(33, 150, 243, 0.9);
+
+  transform: translateY(100%);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.portfolio-list .thumb {
+  overflow: hidden;
 }
